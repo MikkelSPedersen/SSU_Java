@@ -5,22 +5,23 @@ import java.util.*;
 
 public class input {
 
-    private String file;
+    private String _file;
 
     public input(String path){
-        file = path;
+        _file = path;
     }
 
-    public int[] readIntFile(){
-        int[] returnNum = new int[0];
+    public double[] readFile(){
+        double[] returnNum = new double[0];
 
         BufferedReader reader;
 		try {
-		    reader = new BufferedReader(new FileReader(file));
+		    reader = new BufferedReader(new FileReader(_file));
             String line = reader.readLine();
 
 			while (line != null) {
-                returnNum = add(returnNum, Integer.parseInt(line));
+                
+                returnNum = addDoubleArray(returnNum, doubleInString(line, ","));
                 // read next line
                 line = reader.readLine();
             }
@@ -34,13 +35,33 @@ public class input {
         return returnNum;
     }
 
-    private int[] add(int[] arr, int elements){
-        int[] tempArr = new int[arr.length+1];
+
+    private double[] doubleInString(String line, String splitChar){
+        String[] stringSplit = line.split(splitChar);
+        double[] returnNums = new double[0];
+
+        for(int i =0; i < stringSplit.length; i++){
+            returnNums = addDouble(returnNums, Double.parseDouble(stringSplit[i]));
+        }
+
+        return returnNums;
+    }
+
+    private double[] addDouble(double[] arr, double element){
+        double[] tempArr = new double[arr.length+1];
+
         System.arraycopy(arr, 0, tempArr, 0, arr.length);
-        
-        tempArr[arr.length] = elements;
+        tempArr[arr.length] = element;
+
+        return tempArr;
+    }
+
+    private double[] addDoubleArray(double[] arr1, double[] arr2){
+        double[] tempArr = new double[arr1.length + arr2.length];
+
+        System.arraycopy(arr1, 0, tempArr, 0, arr1.length);
+        System.arraycopy(arr2, 0, tempArr, arr1.length, arr2.length);
   
         return tempArr;
-        
     }
 }

@@ -7,10 +7,9 @@ public class script {
 
       System.out.println("Copying files");
 
-      input newInput = new input("input.txt");
-      
-      stats stat = new stats(newInput.readIntFile());
+      input newInput = new input("doubleFile.csv");
+
+      stats stat = new stats(newInput.readFile());
       stat.counter();
-      
    }
 }
