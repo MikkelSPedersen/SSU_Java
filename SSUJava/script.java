@@ -1,6 +1,4 @@
 import java.util.*; 
-import stats.java;
-import stats.input;
 
 public class script {
    public static void main(String args[]) {
