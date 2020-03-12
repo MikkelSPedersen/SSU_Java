@@ -25,8 +25,8 @@ class Main {
         RailVehicle[] temp = new RailVehicle[4];
         temp[0] = new Locomotive(1, "Lokofører");
         temp[1] = new BulkCar(2, "Mad");
-        temp[2] = new BulkCar(3, "Corona(øl self)");
-        temp[3] = new Tanker(4, "30L Oile");
+        temp[2] = new BulkCar(3, "Øl");
+        temp[3] = new Tanker(4, "30L Olie");
         return temp;
     }
 
